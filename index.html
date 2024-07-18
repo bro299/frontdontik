@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Tambahkan CSS animasi dan tema baru di sini */
+        body.light-theme {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body.dark-theme {
+            background-color: #2c2c2c;
+            color: #f0f8ff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar.light-theme {
+            background-color: #ffffff;
+        }
+
+        .navbar.dark-theme {
+            background-color: #444444;
+        }
+
+        .form-control.light-theme {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .form-control.dark-theme {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #ff4500;
+            border-color: #ff4500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff6347;
+            border-color: #ff6347;
+        }
+
+        .btn-secondary {
+            background-color: #1e90ff;
+            border-color: #1e90ff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4682b4;
+            border-color: #4682b4;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            margin-top: 20px;
+        }
+
+        .container {
+            padding-top: 50px;
+        }
+
+        /* Gaya untuk bagian cara menggunakan website */
+        #howToUse {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 50px;
+        }
+
+        #howToUse h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4e4e4e;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #howToUse ol {
+            list-style-type: decimal;
+            font-size: 1rem;
+            color: #555;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        #howToUse li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="light-theme fade-in">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light slide-in-left">
+            <a class="navbar-brand" id="siteName" href="#">🅳🅾🅽🆃🅸🅺</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://donvidtik.vercel.app" id="videoTab">Video/Photo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://donmustik.onrender.com" id="musicTab">Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://kontakbeginnernoob.vercel.app">Kontak</a>
+                    </li>
+                    <!-- Pilihan bahasa -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Language
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                            <a class="dropdown-item" href="#" id="langIndonesia">Indonesia</a>
+                            <a class="dropdown-item" href="#" id="langEnglish">English</a>
+                        </div>
+                    </li>
+                    <button id="themeToggle" class="btn btn-secondary ml-2">
+                        <i class="fas fa-sun bounce"></i>
+                    </button>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="d-flex justify-content-center">
+            <h4 class="slide-in-right">𝗧𝗶𝗸𝘁𝗼𝗸 𝗩𝗶𝗱𝗲𝗼/𝗣𝗵𝗼𝘁𝗼 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿</h4>
+        </div>
+        <form id="downloadForm" class="form-inline justify-content-center flex-column align-items-center">
+            <div class="form-group w-100 d-flex mb-2 slide-in-left">
+                <input type="text" id="videoUrl" class="form-control light-theme" placeholder="Tempel tautan TikTok di sini" required style="flex-grow: 1;">
+                <button type="button" id="pasteButton" class="btn btn-secondary ml-2">Tempel</button>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 slide-in-left">Download</button>
+        </form>
+        <div id="result" class="mt-3"></div>
+        <!-- Tambahkan spinner di sini -->
+        <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+            <span class="sr-only">Loading...</span>
+        </div>
+        
+        <!-- Tambahkan cara menggunakan website dengan animasi -->
+        <div id="howToUse" class="mt-5">
+            <h7 class="slide-in-left" id="howToUseTitle">Bantuan:</h7>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Cara Download Video TikTok Tanpa Watermark
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Salin tautan video TikTok yang ingin Anda unduh.</li>
+                                <li>Tempel tautan tersebut ke dalam kolom input di atas.</li>
+                                <li>Klik tombol "Tempel" jika ingin menggunakan teks dari clipboard.</li>
+                                <li>Klik tombol "Download" untuk memulai proses pengunduhan.</li>
+                                <li>Hasil unduhan akan muncul di bawah kolom input setelah proses selesai.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Cara Download Photo TikTok / Slideshow TikTok
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Salin tautan video TikTok yang berisi foto atau slideshow yang ingin Anda unduh.</li>
+                                <li>Tempel tautan tersebut ke dalam kolom input di atas.</li>
+                                <li>Klik tombol "Tempel" jika ingin menggunakan teks dari clipboard.</li>
+                                <li>Klik tombol "Download" untuk memulai proses pengunduhan.</li>
+                                <li>Hasil unduhan akan muncul di bawah kolom input setelah proses selesai.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Ambil elemen-elemen yang diperlukan
+        const howToUseTitle = document.getElementById('howToUseTitle');
+        const accordionExample = document.getElementById('accordionExample');
+        const langIndonesia = document.getElementById('langIndonesia');
+        const langEnglish = document.getElementById('langEnglish');
+
+        // Fungsi untuk mengubah bahasa ke Indonesia
+        function setLanguageToIndonesia() {
+            howToUseTitle.textContent = 'Bantuan:';
+            accordionExample.innerHTML = `
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Cara Download Video TikTok Tanpa Watermark
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Salin tautan video TikTok yang ingin Anda unduh.</li>
+                                <li>Tempel tautan tersebut ke dalam kolom input di atas.</li>
+                                <li>Klik tombol "Tempel" jika ingin menggunakan teks dari clipboard.</li>
+                                <li>Klik tombol "Download" untuk memulai proses pengunduhan.</li>
+                                <li>Hasil unduhan akan muncul di bawah kolom input setelah proses selesai.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Cara Download Photo TikTok / Slideshow TikTok
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Salin tautan video TikTok yang berisi foto atau slideshow yang ingin Anda unduh.</li>
+                                <li>Tempel tautan tersebut ke dalam kolom input di atas.</li>
+                                <li>Klik tombol "Tempel" jika ingin menggunakan teks dari clipboard.</li>
+                                <li>Klik tombol "Download" untuk memulai proses pengunduhan.</li>
+                                <li>Hasil unduhan akan muncul di bawah kolom input setelah proses selesai.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Fungsi untuk mengubah bahasa ke English
+        function setLanguageToEnglish() {
+            howToUseTitle.textContent = 'About:';
+            accordionExample.innerHTML = `
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How to Download TikTok Videos Without Watermark
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Copy the TikTok video link you want to download.</li>
+                                <li>Paste the link into the input field above.</li>
+                                <li>Click the "Paste" button if you want to use text from the clipboard.</li>
+                                <li>Click the "Download" button to start the download process.</li>
+                                <li>The download result will appear below the input field after the process is complete.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How to Download TikTok Photos / Slideshows
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>Copy the TikTok video link containing the photos or slideshow you want to download.</li>
+                                <li>Paste the link into the input field above.</li>
+                                <li>Click the "Paste" button if you want to use text from the clipboard.</li>
+                                <li>Click the "Download" button to start the download process.</li>
+                                <li>The download result will appear below the input field after the process is complete.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Event listener untuk pilihan bahasa Indonesia
+        langIndonesia.addEventListener('click', function(event) {
+            event.preventDefault();
+            setLanguageToIndonesia();
+        });
+
+        // Event listener untuk pilihan bahasa English
+        langEnglish.addEventListener('click', function(event) {
+            event.preventDefault();
+            setLanguageToEnglish();
+        });
+    </script>
+</body>
+</html>

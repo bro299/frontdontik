@@ -1,0 +1,147 @@
+/* Tambahkan CSS animasi dan tema baru di sini */
+body.light-theme {
+    background-color: #f0f8ff;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.dark-theme {
+    background-color: #2c2c2c;
+    color: #f0f8ff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+.navbar.light-theme {
+    background-color: #ffffff;
+}
+
+.navbar.dark-theme {
+    background-color: #444444;
+}
+
+.form-control.light-theme {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.form-control.dark-theme {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #ff4500;
+    border-color: #ff4500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff6347;
+    border-color: #ff6347;
+}
+
+.btn-secondary {
+    background-color: #1e90ff;
+    border-color: #1e90ff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #4682b4;
+    border-color: #4682b4;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 20px;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+/* Gaya untuk bagian cara menggunakan website */
+#howToUse {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    color: #ccc; /* Warna font untuk tema gelap */
+}
+
+#howToUse h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff; /* Warna judul untuk tema gelap */
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#howToUse ol {
+    list-style-type: decimal;
+    font-size: 1.2rem;
+    color: #bbb; /* Warna isi untuk tema gelap */
+    animation: slideInLeft 1s ease-in-out;
+}
+
+#howToUse li {
+    margin-bottom: 10px;
+}
+/* Tema Gelap untuk Accordion Title */
+body.dark-theme .card-header {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Tema Terang untuk Accordion Title */
+body.light-theme .card-header {
+    background-color: #f0f8ff;
+    color: #333333;
+}
+
+body.dark-theme .card-body {
+    background-color: #333333;
+    color: #a8acaf;
+}
+body.light-theme .card-body {
+    background-color: #f0f8ff;
+    color: #5a5a5a;
+}
+
