@@ -7,7 +7,7 @@ document.getElementById('downloadForm').addEventListener('submit', async (event)
         document.getElementById('loadingSpinner').style.display = 'block';
         console.log('Sending request to backend');
 
-        const response = await fetch('/api/download', {
+        const response = await fetch('/api/download', { // Pastikan endpoint sesuai dengan server
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
