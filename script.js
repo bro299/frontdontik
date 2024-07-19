@@ -1,13 +1,13 @@
 document.getElementById('downloadForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const videoUrl = document.getElementById('videoUrl').value;
-    console.log(`URL entered: ${videoUrl}`); // Log URL input
+    console.log(`URL entered: ${videoUrl}`);
 
     try {
         document.getElementById('loadingSpinner').style.display = 'block';
-        console.log('Sending request to backend'); // Log request initiation
+        console.log('Sending request to backend');
 
-        const response = await fetch('/download', {
+        const response = await fetch('/api/download', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ document.getElementById('downloadForm').addEventListener('submit', async (event)
 
         const data = await response.json();
         document.getElementById('loadingSpinner').style.display = 'none';
-        console.log(`Received response: ${JSON.stringify(data)}`); // Log response
+        console.log(`Received response: ${JSON.stringify(data)}`);
 
         if (data.images && data.images.length > 0) {
             const images = data.images.map((img, index) => `
